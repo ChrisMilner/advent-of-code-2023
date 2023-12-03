@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
 class DayOneTest {
     @Test
     void partOneTest() throws IOException {
-        assertEquals(55090, new DayOnePartOne().solution());
+        assertEquals(54331, new DayOnePartOne().solution());
     }
 
     @Test
     void partTwoTest() throws IOException {
-        assertEquals(54845, new DayOnePartTwo().solution());
+        assertEquals(54518, new DayOnePartTwo().solution());
     }
 }
