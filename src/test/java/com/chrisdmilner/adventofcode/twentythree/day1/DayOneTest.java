@@ -1,9 +1,10 @@
 package com.chrisdmilner.adventofcode.twentythree.day1;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DayOneTest {
     @Test

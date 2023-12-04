@@ -1,6 +1,7 @@
 package com.chrisdmilner.adventofcode.twentythree.day1;
 
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInputReader;
+
 import java.io.IOException;
 
 public abstract class DayOne {
