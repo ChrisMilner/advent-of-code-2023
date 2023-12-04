@@ -4,7 +4,7 @@ import java.util.List;
 
 public class DayFourPartOne extends DayFour {
     @Override
-    int getPoints(List<Card> cards) {
+    int getSolution(List<Card> cards) {
         return cards.stream().mapToInt(this::calculatePoints).sum();
     }
 

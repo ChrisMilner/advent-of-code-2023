@@ -7,10 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class DayFour {
-    abstract int getPoints(List<Card> cards);
+    abstract int getSolution(List<Card> cards);
 
     public int solution() throws IOException {
-        return getPoints(
+        return getSolution(
                 PuzzleInputReader.streamInputLines(4)
                         .map(Card::fromString)
                         .toList()
@@ -24,13 +24,14 @@ public abstract class DayFour {
             String[] numberParts = numbers.split(" \\| ");
 
             return new Card(
-                    parseIntsFromString(numberParts[0].strip()),
-                    parseIntsFromString(numberParts[1].strip())
+                    parseIntsFromString(numberParts[0]),
+                    parseIntsFromString(numberParts[1])
             );
         }
 
         private static List<Integer> parseIntsFromString(String input) {
             return Arrays.stream(input.split("\\s+"))
+                    .filter(s -> !s.isBlank())
                     .map(Integer::parseInt)
                     .toList();
         }
