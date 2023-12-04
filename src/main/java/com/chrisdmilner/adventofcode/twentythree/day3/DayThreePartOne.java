@@ -74,9 +74,7 @@ public class DayThreePartOne extends DayThree {
 
         // Check Right
         if (numberStart + numberLength < lines[numberLine].length) {
-            if (isSymbol(lines[numberLine][numberStart + numberLength])) {
-                return true;
-            }
+            return isSymbol(lines[numberLine][numberStart + numberLength]);
         }
 
         return false;
