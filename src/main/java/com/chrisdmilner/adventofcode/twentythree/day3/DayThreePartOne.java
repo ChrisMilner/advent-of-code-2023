@@ -1,11 +1,6 @@
 package com.chrisdmilner.adventofcode.twentythree.day3;
 
-import java.util.Set;
-
 public class DayThreePartOne extends DayThree {
-    private static final Set<Character> NUMBERS = Set.of('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
-    private static final Set<Character> NOT_SYMBOL = Set.of('.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
-
     @Override
     int getSolution(char[][] lines) {
         int totalLabels = 0;
@@ -79,13 +74,4 @@ public class DayThreePartOne extends DayThree {
 
         return false;
     }
-
-    private static boolean isNumber(char c) {
-        return NUMBERS.contains(c);
-    }
-
-    private static boolean isSymbol(char c) {
-        return !NOT_SYMBOL.contains(c);
-    }
-
 }
