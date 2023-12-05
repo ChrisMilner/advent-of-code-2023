@@ -14,10 +14,26 @@ public class PuzzleInputReader {
     }
 
     public static List<String> readInputLines(int day) throws IOException {
-        return Files.readAllLines(getInputFilePath(day)).stream().map(String::strip).toList();
+        return readFileLines(getInputFilePath(day));
+    }
+
+    public static List<String> readTestInputLines(int day) throws IOException {
+        return readFileLines(getTestInputFilePath(day));
+    }
+
+    private static List<String> readFileLines(Path path) throws IOException {
+        return Files.readAllLines(path).stream().map(String::strip).toList();
     }
 
     private static Path getInputFilePath(int day) {
-        return RESOURCES_PATH.resolve(Path.of("day-" + day, "input.txt"));
+        return getFilePath(day, "input.txt");
+    }
+
+    private static Path getTestInputFilePath(int day) {
+        return getFilePath(day, "test-input.txt");
+    }
+
+    private static Path getFilePath(int day, String filename) {
+        return RESOURCES_PATH.resolve(Path.of("day-" + day, filename));
     }
 }
