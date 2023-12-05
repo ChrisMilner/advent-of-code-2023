@@ -14,7 +14,7 @@ class DayFiveTest {
 
     @Test
     void partTwoTest() throws IOException {
-        assertEquals(6284877, new DayFivePartTwo().solution(false));
+        assertEquals(28580589, new DayFivePartTwo().solution(false));
     }
 
     @Test
