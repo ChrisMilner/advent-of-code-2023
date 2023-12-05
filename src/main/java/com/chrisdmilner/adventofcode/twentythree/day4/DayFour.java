@@ -11,7 +11,7 @@ public abstract class DayFour {
 
     public int solution(PuzzleInput input) throws IOException {
         return getSolution(
-                input.streamInputLines()
+                input.streamLines()
                         .map(Card::fromString)
                         .toList()
         );

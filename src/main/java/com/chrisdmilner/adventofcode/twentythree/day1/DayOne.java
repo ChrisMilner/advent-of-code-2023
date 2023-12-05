@@ -8,7 +8,7 @@ public abstract class DayOne {
     abstract int[] getDigits(String line);
 
     public int solution(PuzzleInput input) throws IOException {
-        return input.streamInputLines()
+        return input.streamLines()
                 .map(this::getDigits)
                 .mapToInt(DayOne::combineFirstAndLast)
                 .sum();

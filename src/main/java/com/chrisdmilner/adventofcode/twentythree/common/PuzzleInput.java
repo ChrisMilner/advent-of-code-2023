@@ -13,11 +13,11 @@ public class PuzzleInput {
         this.path = path;
     }
 
-    public Stream<String> streamInputLines() throws IOException {
-        return readInputLines().stream();
+    public Stream<String> streamLines() throws IOException {
+        return readLines().stream();
     }
 
-    public List<String> readInputLines() throws IOException {
+    public List<String> readLines() throws IOException {
         return Files.readAllLines(path);
     }
 }

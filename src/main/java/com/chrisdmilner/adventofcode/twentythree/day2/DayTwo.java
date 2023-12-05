@@ -12,7 +12,7 @@ public abstract class DayTwo {
     abstract int getSolution(Stream<Game> games);
 
     public int solution(PuzzleInput input) throws IOException {
-        return getSolution(input.streamInputLines().map(this::parseGame));
+        return getSolution(input.streamLines().map(this::parseGame));
     }
 
     private Game parseGame(String line) {

@@ -6,11 +6,11 @@ import java.nio.file.Path;
 public class PuzzleInputReader {
     private static final Path RESOURCES_PATH = Path.of("src", "main", "resources");
 
-    public static PuzzleInput getInputFile(int day) throws IOException {
+    public static PuzzleInput getInputFile(int day) {
         return new PuzzleInput(getFilePath(day, "input.txt"));
     }
 
-    public static PuzzleInput getTestInputFile(int day) throws IOException {
+    public static PuzzleInput getTestInputFile(int day) {
         return new PuzzleInput(getFilePath(day, "test-input.txt"));
     }
 

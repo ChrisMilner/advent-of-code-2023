@@ -13,7 +13,7 @@ public abstract class DayThree {
 
     public int solution(PuzzleInput input) throws IOException {
         return getSolution(
-                input.streamInputLines()
+                input.streamLines()
                         .map(s -> s.strip().toCharArray())
                         .toList()
                         .toArray(new char[0][0])

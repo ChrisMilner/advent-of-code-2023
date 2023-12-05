@@ -11,7 +11,7 @@ public abstract class DayFive {
     abstract long getSolution(List<Long> seeds, List<RangeMap> maps);
 
     public long solution(PuzzleInput input) throws IOException {
-        List<String> lines = input.readInputLines();
+        List<String> lines = input.readLines();
 
         return getSolution(parseSeeds(lines.get(0)), parseMaps(lines.subList(2, lines.size())));
     }
