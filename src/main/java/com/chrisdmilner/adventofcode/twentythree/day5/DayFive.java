@@ -1,6 +1,6 @@
 package com.chrisdmilner.adventofcode.twentythree.day5;
 
-import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInputReader;
+import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,10 +10,8 @@ import java.util.List;
 public abstract class DayFive {
     abstract long getSolution(List<Long> seeds, List<RangeMap> maps);
 
-    public long solution(boolean testInput) throws IOException {
-        List<String> lines = testInput
-                ? PuzzleInputReader.readTestInputLines(5)
-                : PuzzleInputReader.readInputLines(5);
+    public long solution(PuzzleInput input) throws IOException {
+        List<String> lines = input.readInputLines();
 
         return getSolution(parseSeeds(lines.get(0)), parseMaps(lines.subList(2, lines.size())));
     }

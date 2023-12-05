@@ -1,14 +1,14 @@
 package com.chrisdmilner.adventofcode.twentythree.day1;
 
-import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInputReader;
+import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
 
 import java.io.IOException;
 
 public abstract class DayOne {
     abstract int[] getDigits(String line);
 
-    public int solution() throws IOException {
-        return PuzzleInputReader.streamInputLines(1)
+    public int solution(PuzzleInput input) throws IOException {
+        return input.streamInputLines()
                 .map(this::getDigits)
                 .mapToInt(DayOne::combineFirstAndLast)
                 .sum();

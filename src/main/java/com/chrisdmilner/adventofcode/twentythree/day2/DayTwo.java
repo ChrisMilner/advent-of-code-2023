@@ -1,6 +1,6 @@
 package com.chrisdmilner.adventofcode.twentythree.day2;
 
-import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInputReader;
+import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -11,8 +11,8 @@ import java.util.stream.Stream;
 public abstract class DayTwo {
     abstract int getSolution(Stream<Game> games);
 
-    public int solution() throws IOException {
-        return getSolution(PuzzleInputReader.streamInputLines(2).map(this::parseGame));
+    public int solution(PuzzleInput input) throws IOException {
+        return getSolution(input.streamInputLines().map(this::parseGame));
     }
 
     private Game parseGame(String line) {
