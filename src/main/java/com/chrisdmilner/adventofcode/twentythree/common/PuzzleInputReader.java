@@ -1,6 +1,5 @@
 package com.chrisdmilner.adventofcode.twentythree.common;
 
-import java.io.IOException;
 import java.nio.file.Path;
 
 public class PuzzleInputReader {
