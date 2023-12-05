@@ -3,7 +3,7 @@ package com.chrisdmilner.adventofcode.twentythree.day5;
 import java.util.List;
 
 public class RangeMap {
-    private List<RangeMapEntry> entries;
+    private final List<RangeMapEntry> entries;
 
     RangeMap(List<RangeMapEntry> entries) {
         this.entries = entries;

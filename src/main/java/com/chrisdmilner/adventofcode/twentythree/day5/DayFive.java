@@ -47,4 +47,14 @@ public abstract class DayFive {
 
         return rangeMaps;
     }
+
+    static long applyMapsSequentially(List<RangeMap> maps, long seed) {
+        long currVal = seed;
+
+        for (RangeMap map : maps) {
+            currVal = map.apply(currVal);
+        }
+
+        return currVal;
+    }
 }

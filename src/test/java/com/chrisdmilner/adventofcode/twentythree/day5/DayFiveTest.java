@@ -21,4 +21,9 @@ class DayFiveTest {
     void testInputPartOneTest() throws IOException {
         assertEquals(35, new DayFivePartOne().solution(true));
     }
+
+    @Test
+    void testInputPartTwoTest() throws IOException {
+        assertEquals(46, new DayFivePartTwo().solution(true));
+    }
 }

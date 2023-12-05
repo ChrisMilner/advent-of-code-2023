@@ -10,14 +10,4 @@ public class DayFivePartOne extends DayFive {
                 .min()
                 .orElse(-1);
     }
-
-    private long applyMapsSequentially(List<RangeMap> maps, long seed) {
-        long currVal = seed;
-
-        for (RangeMap map : maps) {
-            currVal = map.apply(currVal);
-        }
-
-        return currVal;
-    }
 }
