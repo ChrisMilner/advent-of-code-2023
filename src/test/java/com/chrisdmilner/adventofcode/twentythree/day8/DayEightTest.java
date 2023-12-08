@@ -13,8 +13,13 @@ class DayEightTest {
         assertEquals(21389, new DayEightPartOne().solution(PuzzleInputReader.getInputFile(8)));
     }
 
-//    @Test
-//    void partTwoTest() throws IOException {
-//        assertEquals(0, new DayEightPartTwo().solution(PuzzleInputReader.getInputFile(8)));
-//    }
+    @Test
+    void partTwoTest() throws IOException {
+        assertEquals(0, new DayEightPartTwo().solution(PuzzleInputReader.getInputFile(8)));
+    }
+
+    @Test
+    void testInputPartTwoTest() throws IOException {
+        assertEquals(6, new DayEightPartTwo().solution(PuzzleInputReader.getTestInputFile(8)));
+    }
 }

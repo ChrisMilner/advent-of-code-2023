@@ -11,6 +11,9 @@ public abstract class DayEight {
     int solution(PuzzleInput input) throws IOException {
         List<String> lines = input.readLines();
 
-        return getNumberOfSteps(lines.get(0).strip().toCharArray(), Network.fromLines(lines.subList(2, lines.size())));
+        return getNumberOfSteps(
+                lines.get(0).strip().toCharArray(),
+                Network.fromLines(lines.subList(2, lines.size()))
+        );
     }
 }

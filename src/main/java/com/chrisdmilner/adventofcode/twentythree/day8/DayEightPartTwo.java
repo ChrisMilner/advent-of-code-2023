@@ -2,16 +2,19 @@ package com.chrisdmilner.adventofcode.twentythree.day8;
 
 import java.util.List;
 
-public class DayEightPartOne extends DayEight {
-
+public class DayEightPartTwo extends DayEight {
     @Override
     int getNumberOfSteps(char[] route, Network network) {
-        network.setCurrentLocations(List.of("AAA"));
+        List<String> startingLocations = network.allLocation().stream()
+                .filter(l -> l.endsWith("A"))
+                .toList();
+
+        network.setCurrentLocations(startingLocations);
 
         int stepsTaken = 0;
         int i = 0;
 
-        while (!network.getCurrentLocations().get(0).equals("ZZZ")) {
+        while (!network.getCurrentLocations().stream().allMatch(l -> l.endsWith("Z"))) {
             if (route[i] == 'L') {
                 network.goLeft();
             } else {

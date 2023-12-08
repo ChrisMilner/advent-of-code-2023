@@ -2,6 +2,7 @@ package com.chrisdmilner.adventofcode.twentythree.day8;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Network {
@@ -10,11 +11,15 @@ public class Network {
 
     private Network(Map<String, Fork> map) {
         this.map = map;
-        this.currentLocations = List.of("AAA");
+        this.currentLocations = List.of();
     }
 
     public List<String> getCurrentLocations() {
         return currentLocations;
+    }
+
+    public Set<String> allLocation() {
+        return map.keySet();
     }
 
     public void setCurrentLocations(List<String> locations) {
