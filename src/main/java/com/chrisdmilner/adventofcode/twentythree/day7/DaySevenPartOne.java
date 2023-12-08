@@ -35,33 +35,6 @@ public class DaySevenPartOne extends DaySeven {
             return HandType.compare(aType, bType);
         }
 
-        private int compareCardChars(char a, char b) {
-            if (a == b) {
-                return 0;
-            }
-
-            return Integer.compare(cardCharToRank(a), cardCharToRank(b));
-        }
-
-        private int cardCharToRank(char c) {
-            return switch (c) {
-                case 'A' ->  14;
-                case 'K' ->  13;
-                case 'Q' ->  12;
-                case 'J' ->  11;
-                case 'T' ->  10;
-                case '9' ->   9;
-                case '8' ->   8;
-                case '7' ->   7;
-                case '6' ->   6;
-                case '5' ->   5;
-                case '4' ->   4;
-                case '3' ->   3;
-                case '2' ->   2;
-                default  ->  -1;
-            };
-        }
-
         private HandType getHandType(Hand hand) {
             Map<Character, Integer> charFrequency = stringToCharFrequency(hand.hand());
 
@@ -104,6 +77,33 @@ public class DaySevenPartOne extends DaySeven {
             }
 
             return charFrequency;
+        }
+
+        private int compareCardChars(char a, char b) {
+            if (a == b) {
+                return 0;
+            }
+
+            return Integer.compare(cardCharToRank(a), cardCharToRank(b));
+        }
+
+        private static int cardCharToRank(char c) {
+            return switch (c) {
+                case 'A' ->  14;
+                case 'K' ->  13;
+                case 'Q' ->  12;
+                case 'J' ->  11;
+                case 'T' ->  10;
+                case '9' ->   9;
+                case '8' ->   8;
+                case '7' ->   7;
+                case '6' ->   6;
+                case '5' ->   5;
+                case '4' ->   4;
+                case '3' ->   3;
+                case '2' ->   2;
+                default  ->  -1;
+            };
         }
     }
 }
