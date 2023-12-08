@@ -1,13 +1,14 @@
 package com.chrisdmilner.adventofcode.twentythree.day5;
 
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
+import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class DayFive {
+public abstract class DayFive implements PuzzleSolution {
     abstract long getSolution(List<Long> seeds, List<RangeMap> maps);
 
     public long solution(PuzzleInput input) throws IOException {

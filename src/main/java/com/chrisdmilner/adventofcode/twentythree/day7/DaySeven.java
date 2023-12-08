@@ -1,6 +1,7 @@
 package com.chrisdmilner.adventofcode.twentythree.day7;
 
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
+import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
 
 import java.io.IOException;
 import java.util.Comparator;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.LongStream;
 
-public abstract class DaySeven {
+public abstract class DaySeven implements PuzzleSolution {
     abstract Comparator<Hand> getComparator();
 
     public long solution(PuzzleInput input) throws IOException {

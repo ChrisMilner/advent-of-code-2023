@@ -9,8 +9,8 @@ public class PuzzleInputReader {
         return new PuzzleInput(getFilePath(day, "input.txt"));
     }
 
-    public static PuzzleInput getTestInputFile(int day) {
-        return new PuzzleInput(getFilePath(day, "test-input.txt"));
+    public static PuzzleInput getExampleInputFile(int day) {
+        return new PuzzleInput(getFilePath(day, "example-input.txt"));
     }
 
     private static Path getFilePath(int day, String filename) {

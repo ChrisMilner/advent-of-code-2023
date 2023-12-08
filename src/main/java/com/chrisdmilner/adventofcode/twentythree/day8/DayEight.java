@@ -1,14 +1,15 @@
 package com.chrisdmilner.adventofcode.twentythree.day8;
 
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
+import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
 
 import java.io.IOException;
 import java.util.List;
 
-public abstract class DayEight {
+public abstract class DayEight implements PuzzleSolution {
     abstract int getNumberOfSteps(char[] route, Network network);
 
-    int solution(PuzzleInput input) throws IOException {
+    public long solution(PuzzleInput input) throws IOException {
         List<String> lines = input.readLines();
 
         return getNumberOfSteps(

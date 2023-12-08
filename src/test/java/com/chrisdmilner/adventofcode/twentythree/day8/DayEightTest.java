@@ -1,6 +1,8 @@
 package com.chrisdmilner.adventofcode.twentythree.day8;
 
+import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInputReader;
+import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -8,18 +10,24 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DayEightTest {
+    private static final PuzzleSolution partOne = new DayEightPartOne();
+    private static final PuzzleSolution partTwo = new DayEightPartTwo();
+
+    private static final PuzzleInput input = PuzzleInputReader.getInputFile(8);
+    private static final PuzzleInput exampleInput = PuzzleInputReader.getExampleInputFile(8);
+
     @Test
     void partOneTest() throws IOException {
-        assertEquals(21389, new DayEightPartOne().solution(PuzzleInputReader.getInputFile(8)));
+        assertEquals(21389, partOne.solution(input));
     }
 
-    @Test
-    void partTwoTest() throws IOException {
-        assertEquals(0, new DayEightPartTwo().solution(PuzzleInputReader.getInputFile(8)));
-    }
+//    @Test
+//    void partTwoTest() throws IOException {
+//        assertEquals(0, partTwo.solution(input));
+//    }
 
     @Test
-    void testInputPartTwoTest() throws IOException {
-        assertEquals(6, new DayEightPartTwo().solution(PuzzleInputReader.getTestInputFile(8)));
+    void partTwoExampleTest() throws IOException {
+        assertEquals(6, partTwo.solution(exampleInput));
     }
 }

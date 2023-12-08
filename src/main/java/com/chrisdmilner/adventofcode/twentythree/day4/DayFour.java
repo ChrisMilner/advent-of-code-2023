@@ -1,15 +1,16 @@
 package com.chrisdmilner.adventofcode.twentythree.day4;
 
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
+import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class DayFour {
+public abstract class DayFour implements PuzzleSolution {
     abstract int getSolution(List<Card> cards);
 
-    public int solution(PuzzleInput input) throws IOException {
+    public long solution(PuzzleInput input) throws IOException {
         return getSolution(
                 input.streamLines()
                         .map(Card::fromString)
