@@ -7,7 +7,7 @@ public class DayEightPartOne extends DayEight {
         int stepsTaken = 0;
         int i = 0;
 
-        while (!network.getCurrentLocation().equals("ZZZ")) {
+        while (!network.getCurrentLocations().get(0).equals("ZZZ")) {
             if (route[i] == 'L') {
                 network.goLeft();
             } else {
