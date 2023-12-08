@@ -1,7 +1,6 @@
 package com.chrisdmilner.adventofcode.twentythree.day7;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
 
 public class DaySevenPartTwo extends DaySeven {
@@ -64,20 +63,6 @@ public class DaySevenPartTwo extends DaySeven {
             }
 
             return HandType.ONE_PAIR;
-        }
-
-        private static Map<Character, Integer> stringToCharFrequency(String string) {
-            Map<Character, Integer> charFrequency = new HashMap<>();
-
-            for (char c : string.toCharArray()) {
-                if (charFrequency.containsKey(c)) {
-                    charFrequency.put(c, charFrequency.get(c) + 1);
-                } else {
-                    charFrequency.put(c, 1);
-                }
-            }
-
-            return charFrequency;
         }
 
         private int compareCardChars(char a, char b) {
