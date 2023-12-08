@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DaySevenPartOne extends DaySeven {
+public class DaySevenPartTwo extends DaySeven {
     @Override
     Comparator<Hand> getComparator() {
         return new HandComparator();
@@ -48,7 +48,6 @@ public class DaySevenPartOne extends DaySeven {
                 case 'A' ->  14;
                 case 'K' ->  13;
                 case 'Q' ->  12;
-                case 'J' ->  11;
                 case 'T' ->  10;
                 case '9' ->   9;
                 case '8' ->   8;
@@ -58,11 +57,13 @@ public class DaySevenPartOne extends DaySeven {
                 case '4' ->   4;
                 case '3' ->   3;
                 case '2' ->   2;
+                case 'J' ->   1;
                 default  ->  -1;
             };
         }
 
         private HandType getHandType(Hand hand) {
+            // TODO: Update to account for Jokers
             Map<Character, Integer> charFrequency = stringToCharFrequency(hand.hand());
 
             if (charFrequency.size() == 1) {
