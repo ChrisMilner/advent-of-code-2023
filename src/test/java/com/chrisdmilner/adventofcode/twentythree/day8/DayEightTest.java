@@ -1,8 +1,6 @@
 package com.chrisdmilner.adventofcode.twentythree.day8;
 
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInputReader;
-import com.chrisdmilner.adventofcode.twentythree.day7.DaySevenPartOne;
-import com.chrisdmilner.adventofcode.twentythree.day7.DaySevenPartTwo;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

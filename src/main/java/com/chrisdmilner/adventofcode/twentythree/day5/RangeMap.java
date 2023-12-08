@@ -62,9 +62,5 @@ public class RangeMap {
         public long reverse(long input) {
             return sourceStart + (input - destinationStart);
         }
-
-        public long getStartPoint() {
-            return sourceStart;
-        }
     }
 }

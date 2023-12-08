@@ -1,7 +1,6 @@
 package com.chrisdmilner.adventofcode.twentythree.day7;
 
 import java.util.Comparator;
-import java.util.Map;
 
 public class DaySevenPartOne extends DaySeven {
     @Override
