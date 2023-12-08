@@ -37,6 +37,34 @@ public abstract class DaySeven {
         return charFrequency;
     }
 
+    static HandType getHandTypeFromCardFrequency(Map<Character, Integer> cardFrequency) {
+        if (cardFrequency.size() == 1) {
+            return HandType.FIVE_OF_A_KIND;
+        }
+
+        if (cardFrequency.size() == 5) {
+            return HandType.HIGH_CARD;
+        }
+
+        if (cardFrequency.size() == 2) {
+            if (cardFrequency.values().stream().anyMatch(i -> i == 4)) {
+                return HandType.FOUR_OF_A_KIND;
+            }
+
+            return HandType.FULL_HOUSE;
+        }
+
+        if (cardFrequency.values().stream().anyMatch(i -> i == 3)) {
+            return HandType.THREE_OF_A_KIND;
+        }
+
+        if (cardFrequency.values().stream().filter(i -> i == 2).count() == 2) {
+            return HandType.TWO_PAIR;
+        }
+
+        return HandType.ONE_PAIR;
+    }
+
     record Hand(String hand, int bid) {
         static Hand fromString(String string) {
             String[] parts = string.split(" ");

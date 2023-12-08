@@ -15,6 +15,6 @@ class DaySevenTest {
 
     @Test
     void partTwoTest() throws IOException {
-        assertEquals(0, new DaySevenPartTwo().solution(PuzzleInputReader.getInputFile(7)));
+        assertEquals(250057090, new DaySevenPartTwo().solution(PuzzleInputReader.getInputFile(7)));
     }
 }

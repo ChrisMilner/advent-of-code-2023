@@ -35,33 +35,7 @@ public class DaySevenPartOne extends DaySeven {
         }
 
         private HandType getHandType(Hand hand) {
-            Map<Character, Integer> charFrequency = stringToCharFrequency(hand.hand());
-
-            if (charFrequency.size() == 1) {
-                return HandType.FIVE_OF_A_KIND;
-            }
-
-            if (charFrequency.size() == 5) {
-                return HandType.HIGH_CARD;
-            }
-
-            if (charFrequency.size() == 2) {
-                if (charFrequency.values().stream().anyMatch(i -> i == 4)) {
-                    return HandType.FOUR_OF_A_KIND;
-                }
-
-                return HandType.FULL_HOUSE;
-            }
-
-            if (charFrequency.values().stream().anyMatch(i -> i == 3)) {
-                return HandType.THREE_OF_A_KIND;
-            }
-
-            if (charFrequency.values().stream().filter(i -> i == 2).count() == 2) {
-                return HandType.TWO_PAIR;
-            }
-
-            return HandType.ONE_PAIR;
+            return getHandTypeFromCardFrequency(stringToCharFrequency(hand.hand()));
         }
 
         private static int compareCardChars(char a, char b) {

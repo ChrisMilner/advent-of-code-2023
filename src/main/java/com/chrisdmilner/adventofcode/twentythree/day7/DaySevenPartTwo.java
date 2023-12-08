@@ -1,6 +1,8 @@
 package com.chrisdmilner.adventofcode.twentythree.day7;
 
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 
 public class DaySevenPartTwo extends DaySeven {
@@ -35,34 +37,26 @@ public class DaySevenPartTwo extends DaySeven {
         }
 
         private HandType getHandType(Hand hand) {
-            // TODO: Update to account for Jokers
             Map<Character, Integer> charFrequency = stringToCharFrequency(hand.hand());
 
-            if (charFrequency.size() == 1) {
-                return HandType.FIVE_OF_A_KIND;
+            replaceJokers(charFrequency);
+
+            return getHandTypeFromCardFrequency(charFrequency);
+        }
+
+        private void replaceJokers(Map<Character, Integer> frequency) {
+            List<Map.Entry<Character, Integer>> nonJokerEntries = frequency.entrySet().stream()
+                    .filter(c -> !c.getKey().equals('J'))
+                    .toList();
+
+            if (nonJokerEntries.isEmpty()) {
+                return;
             }
 
-            if (charFrequency.size() == 5) {
-                return HandType.HIGH_CARD;
-            }
+            char mostFrequentCard = Collections.max(nonJokerEntries, Map.Entry.comparingByValue()).getKey();
 
-            if (charFrequency.size() == 2) {
-                if (charFrequency.values().stream().anyMatch(i -> i == 4)) {
-                    return HandType.FOUR_OF_A_KIND;
-                }
-
-                return HandType.FULL_HOUSE;
-            }
-
-            if (charFrequency.values().stream().anyMatch(i -> i == 3)) {
-                return HandType.THREE_OF_A_KIND;
-            }
-
-            if (charFrequency.values().stream().filter(i -> i == 2).count() == 2) {
-                return HandType.TWO_PAIR;
-            }
-
-            return HandType.ONE_PAIR;
+            frequency.put(mostFrequentCard, frequency.get(mostFrequentCard) + frequency.getOrDefault('J', 0));
+            frequency.remove('J');
         }
 
         private int compareCardChars(char a, char b) {
