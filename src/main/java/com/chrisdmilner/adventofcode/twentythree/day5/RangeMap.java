@@ -1,6 +1,7 @@
 package com.chrisdmilner.adventofcode.twentythree.day5;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class RangeMap {
     private final List<RangeMapEntry> entries;
@@ -29,8 +30,10 @@ public class RangeMap {
                 .orElse(input);
     }
 
-    public List<Long> getStartPoints() {
-        return entries.stream().map(RangeMapEntry::getStartPoint).toList();
+    public List<Long> getTransitionPoints() {
+        return entries.stream()
+                .flatMap(e -> Stream.of(e.sourceStart(), e.sourceStart() + e.length()))
+                .toList();
     }
 
     record RangeMapEntry(long sourceStart, long destinationStart, long length) {

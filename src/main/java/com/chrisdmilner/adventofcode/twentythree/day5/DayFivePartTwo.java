@@ -36,7 +36,7 @@ public class DayFivePartTwo extends DayFive {
         List<Long> significantSeeds = new ArrayList<>();
 
         for (int i = 0; i < maps.size(); i++) {
-            List<Long> startPoints = maps.get(i).getStartPoints();
+            List<Long> startPoints = maps.get(i).getTransitionPoints();
 
             // Backtrack the start points through all the previous maps
             for (long startPoint : startPoints) {
