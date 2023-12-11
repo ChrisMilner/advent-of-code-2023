@@ -49,13 +49,25 @@ public class PipeNetwork {
         return getPipeAtCoordinate(currentLocation).equals(Pipe.START);
     }
 
+    public Coordinates getCurrentCoordinates() {
+        return currentLocation;
+    }
+
+    public int getWidth() {
+        return network.getFirst().size();
+    }
+
+    public int getHeight() {
+        return network.size();
+    }
+
+    public Pipe getPipeAtCoordinate(Coordinates coordinates) {
+        return getPipeAtCoordinate(coordinates.x(), coordinates.y());
+    }
+
     private boolean haveReceivingPipe(Direction direction) {
         return getPipeAtCoordinate(currentLocation.move(direction))
                 .getPossibleDirections().contains(direction.opposite());
-    }
-
-    private Pipe getPipeAtCoordinate(Coordinates coordinates) {
-        return getPipeAtCoordinate(coordinates.x(), coordinates.y());
     }
 
     private Pipe getPipeAtCoordinate(int x, int y) {
