@@ -3,8 +3,6 @@ package com.chrisdmilner.adventofcode.twentythree.day10;
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInputReader;
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
-import com.chrisdmilner.adventofcode.twentythree.day9.DayNinePartOne;
-import com.chrisdmilner.adventofcode.twentythree.day9.DayNinePartTwo;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
