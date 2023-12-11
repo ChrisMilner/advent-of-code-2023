@@ -1,5 +1,7 @@
 package com.chrisdmilner.adventofcode.twentythree.day10;
 
+import com.chrisdmilner.adventofcode.twentythree.common.Coordinates;
+
 import java.util.List;
 
 public class PipeNetwork {
