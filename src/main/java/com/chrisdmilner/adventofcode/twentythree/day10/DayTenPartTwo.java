@@ -64,7 +64,6 @@ public class DayTenPartTwo extends DayTen {
         }
 
         int crossings = 0;
-        Pipe crossingEntrance = null;
 
         while (coordinates.y() >= 0) {
             coordinates = coordinates.move(0, -1);
@@ -72,22 +71,8 @@ public class DayTenPartTwo extends DayTen {
             if (loop.contains(coordinates)) {
                 Pipe pipe = inferPipeAtCoords(loop, coordinates, pipes);
 
-                switch (pipe) {
-                    case EAST_WEST -> crossings++;
-                    case NORTH_EAST -> crossingEntrance = NORTH_EAST;
-                    case NORTH_WEST -> crossingEntrance = NORTH_WEST;
-                    case SOUTH_EAST -> {
-                        if (crossingEntrance == NORTH_WEST) {
-                            crossings++;
-                        }
-                        crossingEntrance = null;
-                    }
-                    case SOUTH_WEST -> {
-                        if (crossingEntrance == NORTH_EAST) {
-                            crossings ++;
-                        }
-                        crossingEntrance = null;
-                    }
+                if (pipe.getPossibleDirections().contains(Direction.EAST)) {
+                    crossings++;
                 }
             }
         }
