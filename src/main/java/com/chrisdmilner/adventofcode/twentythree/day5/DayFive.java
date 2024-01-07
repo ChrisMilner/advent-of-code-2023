@@ -1,10 +1,10 @@
 package com.chrisdmilner.adventofcode.twentythree.day5;
 
+import com.chrisdmilner.adventofcode.twentythree.common.ListUtils;
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +14,7 @@ public abstract class DayFive implements PuzzleSolution {
     public long solution(PuzzleInput input) throws IOException {
         List<String> lines = input.readLines();
 
-        return getSolution(parseSeeds(lines.get(0)), parseMaps(lines.subList(2, lines.size())));
+        return getSolution(parseSeeds(lines.getFirst()), parseMaps(lines.subList(2, lines.size())));
     }
 
     private List<Long> parseSeeds(String line) {
@@ -26,25 +26,9 @@ public abstract class DayFive implements PuzzleSolution {
     }
 
     private List<RangeMap> parseMaps(List<String> lines) {
-        List<RangeMap> rangeMaps = new ArrayList<>();
-        List<String> lineBuffer = new ArrayList<>();
-
-        for (String line : lines) {
-            if (line.isBlank() || line.endsWith("map:")) {
-                if (!lineBuffer.isEmpty()) {
-                    rangeMaps.add(RangeMap.fromLines(lineBuffer));
-                }
-                lineBuffer = new ArrayList<>();
-            } else {
-                lineBuffer.add(line);
-            }
-        }
-
-        if (!lineBuffer.isEmpty()) {
-            rangeMaps.add(RangeMap.fromLines(lineBuffer));
-        }
-
-        return rangeMaps;
+        return ListUtils.splitList(lines, line -> line.isBlank() || line.endsWith("map:")).stream()
+                .map(RangeMap::fromLines)
+                .toList();
     }
 
     static long applyMapsSequentially(List<RangeMap> maps, long seed) {
