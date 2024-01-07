@@ -10,13 +10,23 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public abstract class DayThirteen implements PuzzleSolution {
-    abstract long getReflectionPoint(List<Integer> rows, List<Integer> cols);
+    abstract int findReflectionPoint(List<Integer> rows);
 
     @Override
     public long solution(PuzzleInput input) throws IOException {
         return ListUtils.splitList(input.readLines(), String::isBlank).stream()
                 .mapToLong(lines -> getReflectionPoint(parseRows(lines), parseCols(lines)))
                 .sum();
+    }
+
+    long getReflectionPoint(List<Integer> rows, List<Integer> cols) {
+        int rowsReflectionPoint = findReflectionPoint(rows);
+
+        if (rowsReflectionPoint > 0) {
+            return rowsReflectionPoint * 100L;
+        }
+
+        return findReflectionPoint(cols);
     }
 
     private List<Integer> parseRows(List<String> rows) {
@@ -43,5 +53,19 @@ public abstract class DayThirteen implements PuzzleSolution {
         return IntStream.range(0, line.length())
                 .filter(i -> chars[i] == '#')
                 .reduce(0, (acc, i) -> acc + (1 << i));
+    }
+
+    boolean isReflectedAt(List<Integer> rows, int i) {
+        int range = 1;
+
+        while (i - range >= 0 && i + range - 1 < rows.size()) {
+            if (!rows.get(i - range).equals(rows.get(i + range - 1))) {
+                return false;
+            }
+
+            range++;
+        }
+
+        return true;
     }
 }

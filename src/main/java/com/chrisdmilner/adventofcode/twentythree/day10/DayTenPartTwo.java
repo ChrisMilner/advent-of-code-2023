@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.chrisdmilner.adventofcode.twentythree.day10.Pipe.*;
+import static com.chrisdmilner.adventofcode.twentythree.day10.Pipe.START;
+import static com.chrisdmilner.adventofcode.twentythree.day10.Pipe.values;
 
 public class DayTenPartTwo extends DayTen {
     @Override
