@@ -66,4 +66,26 @@ public class ListUtils {
 
         return flattened;
     }
+
+    public static <T> List<T> duplicateList(List<T> list, int number) {
+        return duplicateList(list, number, List.of());
+    }
+
+    public static <T> List<T> duplicateList(List<T> list, int number, T delimiter) {
+        return duplicateList(list, number, List.of(delimiter));
+    }
+
+    public static <T> List<T> duplicateList(List<T> list, int number, List<T> delimiter) {
+        List<T> duplicatedList = new ArrayList<>();
+
+        for (int i = 0; i < number; i++) {
+            duplicatedList.addAll(list);
+
+            if (i != number - 1) {
+                duplicatedList.addAll(delimiter);
+            }
+        }
+
+        return duplicatedList;
+    }
 }

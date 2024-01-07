@@ -102,8 +102,8 @@ public abstract class DayTwelve implements PuzzleSolution {
         int springsTrimEnd = springs.size() - 1;
         int groupsTrimEnd = groups.size() - 1;
 
-        while (springsTrimEnd >= 0 && springs.get(springsTrimEnd).isDamaged()) {
-            if (groupsTrimEnd < 0) {
+        while (springsTrimEnd >= 0 && springsTrimEnd + 1 >= springsTrimStart && springs.get(springsTrimEnd).isDamaged()) {
+            if (groupsTrimEnd < groupsTrimStart) {
                 return 0;
             }
 
