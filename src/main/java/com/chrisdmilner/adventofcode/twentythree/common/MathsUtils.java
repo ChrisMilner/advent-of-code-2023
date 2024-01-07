@@ -1,6 +1,8 @@
 package com.chrisdmilner.adventofcode.twentythree.common;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MathsUtils {
     public static long barsAndStars(int bars, int stars) {
@@ -17,5 +19,19 @@ public class MathsUtils {
         }
 
         return result;
+    }
+
+    public static List<Integer> powersOfTwoUpTo(int n) {
+        List<Integer> powersOfTwo = new ArrayList<>();
+
+        int nextPower = 1;
+
+        while (nextPower < n) {
+            powersOfTwo.add(nextPower);
+
+            nextPower = nextPower << 1;
+        }
+
+        return powersOfTwo;
     }
 }
