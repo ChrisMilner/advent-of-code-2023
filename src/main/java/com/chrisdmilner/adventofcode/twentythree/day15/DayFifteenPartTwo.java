@@ -1,10 +1,11 @@
 package com.chrisdmilner.adventofcode.twentythree.day15;
 
+import com.chrisdmilner.adventofcode.twentythree.common.StreamUtils;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.IntStream;
 
 public class DayFifteenPartTwo extends DayFifteen {
     @Override
@@ -47,10 +48,10 @@ public class DayFifteenPartTwo extends DayFifteen {
         List<Lens> lenses = boxMap.get(box);
 
         if (lenses.stream().anyMatch(l -> l.label.equals(label))) {
-            int replaceIndex = IntStream.range(0, lenses.size())
-                    .filter(i -> lenses.get(i).label().equals(label))
-                    .findFirst()
-                    .orElse(0);
+            int replaceIndex = StreamUtils.streamEnumeratedList(lenses)
+                    .filter(e -> e.value().label().equals(label))
+                    .map(StreamUtils.EnumeratedElement::index)
+                    .findFirst().orElseThrow();
 
             lenses.set(replaceIndex, lens);
         } else {
@@ -69,10 +70,10 @@ public class DayFifteenPartTwo extends DayFifteen {
         List<Lens> lenses = boxMap.get(box);
 
         if (lenses.stream().anyMatch(l -> l.label.equals(label))) {
-            int removeIndex = IntStream.range(0, lenses.size())
-                    .filter(i -> lenses.get(i).label().equals(label))
-                    .findFirst()
-                    .orElse(0);
+            int removeIndex = StreamUtils.streamEnumeratedList(lenses)
+                    .filter(e -> e.value().label().equals(label))
+                    .map(StreamUtils.EnumeratedElement::index)
+                    .findFirst().orElseThrow();
 
             lenses.remove(removeIndex);
         }
