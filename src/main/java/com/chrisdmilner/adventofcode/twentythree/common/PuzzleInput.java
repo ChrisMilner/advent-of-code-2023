@@ -10,6 +10,10 @@ public class PuzzleInput {
     private final Path path;
 
     public PuzzleInput(Path path) {
+        if (!Files.exists(path)) {
+            throw new RuntimeException("Can't find puzzle input file at " + path);
+        }
+
         this.path = path;
     }
 
