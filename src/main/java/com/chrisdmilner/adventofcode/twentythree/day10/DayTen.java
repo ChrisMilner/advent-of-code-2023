@@ -4,12 +4,15 @@ import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
 
 import java.io.IOException;
+import java.util.List;
 
 public abstract class DayTen implements PuzzleSolution {
     abstract int getStepsToFarthestPoint(PipeNetwork pipes);
 
     @Override
     public long solution(PuzzleInput input) throws IOException {
-        return getStepsToFarthestPoint(PipeNetwork.fromStrings(input.readLines()));
+        List<List<Pipe>> pipes = input.parseCharGrid(c -> Pipe.fromChar((char) c));
+
+        return getStepsToFarthestPoint(PipeNetwork.fromPipeGrid(pipes));
     }
 }

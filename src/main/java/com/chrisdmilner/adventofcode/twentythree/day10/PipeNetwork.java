@@ -14,13 +14,7 @@ public class PipeNetwork {
         this.currentLocation = coordinates;
     }
 
-    public static PipeNetwork fromStrings(List<String> strings) {
-        List<List<Pipe>> pipes = strings.stream()
-                .map(string -> string.chars()
-                        .mapToObj(c -> Pipe.fromChar((char) c))
-                        .toList())
-                .toList();
-
+    public static PipeNetwork fromPipeGrid(List<List<Pipe>> pipes) {
         return new PipeNetwork(pipes, findStartPosition(pipes));
     }
 
