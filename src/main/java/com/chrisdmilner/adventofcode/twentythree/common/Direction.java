@@ -1,4 +1,4 @@
-package com.chrisdmilner.adventofcode.twentythree.day10;
+package com.chrisdmilner.adventofcode.twentythree.common;
 
 public enum Direction {
     NORTH, EAST, SOUTH, WEST;

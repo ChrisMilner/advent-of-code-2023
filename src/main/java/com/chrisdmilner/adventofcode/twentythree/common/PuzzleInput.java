@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.function.IntFunction;
 import java.util.stream.Stream;
 
 public class PuzzleInput {
@@ -23,5 +24,11 @@ public class PuzzleInput {
 
     public List<String> readLines() throws IOException {
         return Files.readAllLines(path);
+    }
+
+    public <T> List<List<T>> parseCharGrid(IntFunction<T> parser) throws IOException {
+        return streamLines()
+                .map(line -> line.chars().mapToObj(parser).toList())
+                .toList();
     }
 }

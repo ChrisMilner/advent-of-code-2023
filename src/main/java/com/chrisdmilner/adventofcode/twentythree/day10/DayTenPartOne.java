@@ -1,5 +1,7 @@
 package com.chrisdmilner.adventofcode.twentythree.day10;
 
+import com.chrisdmilner.adventofcode.twentythree.common.Direction;
+
 public class DayTenPartOne extends DayTen {
     @Override
     int getStepsToFarthestPoint(PipeNetwork pipes) {

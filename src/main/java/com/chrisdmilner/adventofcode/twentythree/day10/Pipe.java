@@ -1,9 +1,11 @@
 package com.chrisdmilner.adventofcode.twentythree.day10;
 
+import com.chrisdmilner.adventofcode.twentythree.common.Direction;
+
 import java.util.Arrays;
 import java.util.List;
 
-import static com.chrisdmilner.adventofcode.twentythree.day10.Direction.*;
+import static com.chrisdmilner.adventofcode.twentythree.common.Direction.*;
 
 public enum Pipe {
     NORTH_SOUTH('|', List.of(NORTH, SOUTH)),

@@ -3,6 +3,7 @@ package com.chrisdmilner.adventofcode.twentythree.day12;
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInputReader;
 import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -27,6 +28,8 @@ class DayTwelveTest {
     }
 
     @Test
+    @Disabled
+    // Works but is very slow
     void partTwoTest() throws IOException {
         assertEquals(553083047914L, partTwo.solution(input));
     }

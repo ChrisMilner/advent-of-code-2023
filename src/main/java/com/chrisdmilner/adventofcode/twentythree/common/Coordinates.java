@@ -1,7 +1,5 @@
 package com.chrisdmilner.adventofcode.twentythree.common;
 
-import com.chrisdmilner.adventofcode.twentythree.day10.Direction;
-
 public record Coordinates(int x, int y) {
     public Coordinates move(Direction direction) {
         return switch (direction) {

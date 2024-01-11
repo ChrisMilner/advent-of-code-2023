@@ -1,6 +1,7 @@
 package com.chrisdmilner.adventofcode.twentythree.day10;
 
 import com.chrisdmilner.adventofcode.twentythree.common.Coordinates;
+import com.chrisdmilner.adventofcode.twentythree.common.Direction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
