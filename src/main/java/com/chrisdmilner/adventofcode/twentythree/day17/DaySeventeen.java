@@ -32,7 +32,10 @@ public abstract class DaySeventeen implements PuzzleSolution {
 
             for (CityMap.Node neighbour : unvisitedNeighbours) {
                 int newDistance = bestDistance.get(currentNode) + map.getDistance(neighbour);
-                updateBestDistance(bestDistance, neighbour, newDistance);
+
+                if (!bestDistance.containsKey(neighbour) || newDistance < bestDistance.get(neighbour)) {
+                    bestDistance.put(neighbour, newDistance);
+                }
             }
 
             currentNode = bestDistance.entrySet().stream()
@@ -43,11 +46,5 @@ public abstract class DaySeventeen implements PuzzleSolution {
         }
 
         return bestDistance.get(currentNode);
-    }
-
-    private void updateBestDistance(Map<CityMap.Node, Integer> currentDistances, CityMap.Node node, int newDistance) {
-        if (!currentDistances.containsKey(node) || currentDistances.get(node) > newDistance) {
-            currentDistances.put(node, newDistance);
-        }
     }
 }
