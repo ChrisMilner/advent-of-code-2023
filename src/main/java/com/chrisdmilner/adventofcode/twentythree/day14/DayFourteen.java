@@ -14,6 +14,7 @@ public abstract class DayFourteen implements PuzzleSolution {
     public long solution(PuzzleInput input) throws IOException {
         List<String> lines = input.readLines();
 
+        // TODO: Use input.parseCharGrid instead
         List<List<Rock>> rockColumns = IntStream.range(0, lines.size())
                 .mapToObj(i -> lines.stream()
                         .map(l -> l.toCharArray()[i])

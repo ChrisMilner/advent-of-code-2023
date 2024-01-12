@@ -18,6 +18,7 @@ public abstract class DaySeventeen implements PuzzleSolution {
     private long findShortestPath(Coordinates start, Coordinates end, CityMap map) {
         CityMap.Node currentNode = CityMap.createStartNode(start);
 
+        PriorityQueue<QueueNode> priorityQueue = new PriorityQueue<>();
         Map<CityMap.Node, Integer> bestDistance = new HashMap<>();
         Set<CityMap.Node> visited = new HashSet<>();
 
@@ -35,16 +36,25 @@ public abstract class DaySeventeen implements PuzzleSolution {
 
                 if (!bestDistance.containsKey(neighbour) || newDistance < bestDistance.get(neighbour)) {
                     bestDistance.put(neighbour, newDistance);
+                    priorityQueue.add(new QueueNode(neighbour, newDistance));
                 }
             }
 
-            currentNode = bestDistance.entrySet().stream()
-                    .filter(e -> !visited.contains(e.getKey()))
-                    .min(Map.Entry.comparingByValue())
-                    .orElseThrow()
-                    .getKey();
+            currentNode = Objects.requireNonNull(priorityQueue.poll()).node();
         }
 
         return bestDistance.get(currentNode);
+    }
+
+    private record QueueNode(CityMap.Node node, int distance) implements Comparable<QueueNode> {
+        @Override
+        public int hashCode() {
+            return Objects.hash(node);
+        }
+
+        @Override
+        public int compareTo(QueueNode o) {
+            return Integer.compare(distance, o.distance());
+        }
     }
 }
