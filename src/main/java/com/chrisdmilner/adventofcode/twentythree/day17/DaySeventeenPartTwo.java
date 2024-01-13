@@ -4,9 +4,9 @@ import com.chrisdmilner.adventofcode.twentythree.common.dijkstras.DijkstrasProbl
 
 import java.util.List;
 
-public class DaySeventeenPartOne extends DaySeventeen {
+public class DaySeventeenPartTwo extends DaySeventeen {
     @Override
     DijkstrasProblem<HeatLossProblem.Node> getProblem(List<List<Integer>> map) {
-        return new HeatLossProblem(map, 0, 3);
+        return new HeatLossProblem(map, 4, 10);
     }
 }
