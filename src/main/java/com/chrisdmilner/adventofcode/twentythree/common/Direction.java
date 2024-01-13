@@ -11,4 +11,14 @@ public enum Direction {
             case WEST -> EAST;
         };
     }
+
+    public static Direction fromUDLRChar(char c) {
+        return switch (c) {
+            case 'U' -> NORTH;
+            case 'D' -> SOUTH;
+            case 'L' -> WEST;
+            case 'R' -> EAST;
+            default -> throw new RuntimeException("Unrecognised direction char: " + c);
+        };
+    }
 }
