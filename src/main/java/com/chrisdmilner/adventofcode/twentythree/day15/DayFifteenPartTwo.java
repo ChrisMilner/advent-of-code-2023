@@ -1,6 +1,6 @@
 package com.chrisdmilner.adventofcode.twentythree.day15;
 
-import com.chrisdmilner.adventofcode.twentythree.common.StreamUtils;
+import com.chrisdmilner.adventofcode.twentythree.common.utils.StreamUtils;
 
 import java.util.HashMap;
 import java.util.LinkedList;

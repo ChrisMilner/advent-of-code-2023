@@ -1,4 +1,4 @@
-package com.chrisdmilner.adventofcode.twentythree.common;
+package com.chrisdmilner.adventofcode.twentythree.common.utils;
 
 import java.util.ArrayList;
 import java.util.List;

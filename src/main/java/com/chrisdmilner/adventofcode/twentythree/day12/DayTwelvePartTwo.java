@@ -1,6 +1,6 @@
 package com.chrisdmilner.adventofcode.twentythree.day12;
 
-import com.chrisdmilner.adventofcode.twentythree.common.ListUtils;
+import com.chrisdmilner.adventofcode.twentythree.common.utils.ListUtils;
 
 import java.util.List;
 

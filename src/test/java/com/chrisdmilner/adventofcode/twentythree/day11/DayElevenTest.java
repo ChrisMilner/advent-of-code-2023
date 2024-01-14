@@ -1,8 +1,8 @@
 package com.chrisdmilner.adventofcode.twentythree.day11;
 
-import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
-import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInputReader;
-import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
+import com.chrisdmilner.adventofcode.twentythree.common.framework.PuzzleInput;
+import com.chrisdmilner.adventofcode.twentythree.common.framework.PuzzleInputReader;
+import com.chrisdmilner.adventofcode.twentythree.common.framework.PuzzleSolution;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

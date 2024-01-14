@@ -1,7 +1,7 @@
 package com.chrisdmilner.adventofcode.twentythree.day17;
 
-import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
-import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
+import com.chrisdmilner.adventofcode.twentythree.common.framework.PuzzleInput;
+import com.chrisdmilner.adventofcode.twentythree.common.framework.PuzzleSolution;
 import com.chrisdmilner.adventofcode.twentythree.common.dijkstras.DijkstrasSolver;
 
 import java.io.IOException;

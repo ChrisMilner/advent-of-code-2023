@@ -1,6 +1,6 @@
 package com.chrisdmilner.adventofcode.twentythree.day13;
 
-import com.chrisdmilner.adventofcode.twentythree.common.MathsUtils;
+import com.chrisdmilner.adventofcode.twentythree.common.utils.MathsUtils;
 
 import java.util.ArrayList;
 import java.util.HashSet;

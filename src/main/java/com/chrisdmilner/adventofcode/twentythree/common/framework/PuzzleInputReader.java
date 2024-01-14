@@ -1,4 +1,4 @@
-package com.chrisdmilner.adventofcode.twentythree.common;
+package com.chrisdmilner.adventofcode.twentythree.common.framework;
 
 import java.nio.file.Path;
 

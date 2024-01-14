@@ -1,4 +1,4 @@
-package com.chrisdmilner.adventofcode.twentythree.common;
+package com.chrisdmilner.adventofcode.twentythree.common.framework;
 
 import java.io.IOException;
 import java.nio.file.Files;

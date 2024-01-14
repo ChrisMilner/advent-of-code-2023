@@ -2,8 +2,8 @@ package com.chrisdmilner.adventofcode.twentythree.day18;
 
 import com.chrisdmilner.adventofcode.twentythree.common.Coordinates;
 import com.chrisdmilner.adventofcode.twentythree.common.Direction;
-import com.chrisdmilner.adventofcode.twentythree.common.PuzzleInput;
-import com.chrisdmilner.adventofcode.twentythree.common.PuzzleSolution;
+import com.chrisdmilner.adventofcode.twentythree.common.framework.PuzzleInput;
+import com.chrisdmilner.adventofcode.twentythree.common.framework.PuzzleSolution;
 
 import java.io.IOException;
 import java.util.HashSet;
