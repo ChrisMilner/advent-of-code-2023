@@ -88,4 +88,12 @@ public class ListUtils {
 
         return duplicatedList;
     }
+
+    public static <T> T getOrElse(List<T> list, int index, T orElse) {
+        if (index >= list.size()) {
+            return orElse;
+        }
+
+        return list.get(index);
+    }
 }

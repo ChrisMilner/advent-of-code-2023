@@ -3,8 +3,8 @@ package com.chrisdmilner.adventofcode.twentythree.day19;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Workflows {
     private static final String ACCEPTED = "A";
@@ -37,6 +37,14 @@ public class Workflows {
         return outcome.accepted();
     }
 
+    public List<Integer> getAllTransitionPoints(char c) {
+        return workflowByName.values().stream()
+                .flatMap(w -> w.streamTransitionPoints(c))
+                .distinct()
+                .sorted()
+                .toList();
+    }
+
     public record Workflow(List<Rule> rules) {
         public static Workflow fromLine(String line) {
             return new Workflow(Arrays.stream(line.split(",")).map(Rule::fromString).toList());
@@ -44,7 +52,7 @@ public class Workflows {
 
         public Outcome applyTo(DayNineteen.Part part) {
             for (Rule rule : rules) {
-                Outcome ruleOutcome = rule.condition().apply(part);
+                Outcome ruleOutcome = rule.apply(part);
 
                 if (ruleOutcome != null) {
                     return ruleOutcome;
@@ -54,35 +62,57 @@ public class Workflows {
             throw new RuntimeException("Run out of rules");
         }
 
-        public record Rule(Function<DayNineteen.Part, Outcome> condition) {
+        public Stream<Integer> streamTransitionPoints(char c) {
+            return Stream.concat(
+                    Stream.of(1),
+                    rules.stream()
+                            .filter(rule -> rule.category() == c)
+                            .map(Rule::getTransitionPoint)
+                            .filter(i -> i != -1)
+            );
+        }
+
+        public record Rule(char category, Condition condition, int threshold, Outcome outcome) {
             public static Rule fromString(String string) {
-                if (string.contains(":")) {
-                    return new Rule(getConditionFromString(string));
+                if (!string.contains(":")) {
+                    return new Rule(' ', Condition.ALWAYS_TRUE, 0, Outcome.fromString(string));
                 }
 
-                return new Rule(part -> Outcome.fromString(string));
-            }
-
-            private static Function<DayNineteen.Part, Outcome> getConditionFromString(String string) {
                 String[] parts = string.split(":");
 
-                if (parts[0].contains("<")) {
-                    return part -> {
-                        boolean passes = part.getRatingFromChar(parts[0].charAt(0)) < Integer.parseInt(parts[0].substring(2));
+                if (string.contains("<")) {
+                    String[] subparts = parts[0].split("<");
 
-                        return passes ? Outcome.fromString(parts[1]) : null;
-                    };
+                    return new Rule(subparts[0].charAt(0), Condition.LESS_THAN, Integer.parseInt(subparts[1]), Outcome.fromString(parts[1]));
                 }
 
-                if (parts[0].contains(">")) {
-                    return part -> {
-                        boolean passes = part.getRatingFromChar(parts[0].charAt(0)) > Integer.parseInt(parts[0].substring(2));
+                if (string.contains(">")) {
+                    String[] subparts = parts[0].split(">");
 
-                        return passes ? Outcome.fromString(parts[1]) : null;
-                    };
+                    return new Rule(subparts[0].charAt(0), Condition.GREATER_THAN, Integer.parseInt(subparts[1]), Outcome.fromString(parts[1]));
                 }
 
-                throw new RuntimeException("Rule is missing a valid condition: " + string);
+                throw new RuntimeException("Unrecognised rule: " + string);
+            }
+
+            public int getTransitionPoint() {
+                return switch (condition) {
+                    case ALWAYS_TRUE -> -1;
+                    case LESS_THAN -> threshold;
+                    case GREATER_THAN -> threshold + 1;
+                };
+            }
+
+            public Outcome apply(DayNineteen.Part part) {
+                return switch (condition) {
+                    case ALWAYS_TRUE -> outcome;
+                    case LESS_THAN -> part.getRatingFromChar(category) < threshold ? outcome : null;
+                    case GREATER_THAN -> part.getRatingFromChar(category) > threshold ? outcome : null;
+                };
+            }
+
+            enum Condition {
+                ALWAYS_TRUE, LESS_THAN, GREATER_THAN;
             }
         }
     }
