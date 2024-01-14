@@ -1,12 +1,12 @@
 package com.chrisdmilner.adventofcode.twentythree.day17;
 
-import com.chrisdmilner.adventofcode.twentythree.common.dijkstras.DijkstrasProblem;
+import com.chrisdmilner.adventofcode.twentythree.common.dijkstras.DijkstrasSolver;
 
 import java.util.List;
 
 public class DaySeventeenPartOne extends DaySeventeen {
     @Override
-    DijkstrasProblem<HeatLossProblem.Node> getProblem(List<List<Integer>> map) {
-        return new HeatLossProblem(map, 0, 3);
+    DijkstrasSolver<HeatLossMapSolver.Node> getSolver(List<List<Integer>> map) {
+        return new HeatLossMapSolver(map, 0, 3);
     }
 }

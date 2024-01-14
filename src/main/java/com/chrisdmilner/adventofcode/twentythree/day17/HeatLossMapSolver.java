@@ -2,42 +2,42 @@ package com.chrisdmilner.adventofcode.twentythree.day17;
 
 import com.chrisdmilner.adventofcode.twentythree.common.Coordinates;
 import com.chrisdmilner.adventofcode.twentythree.common.Direction;
-import com.chrisdmilner.adventofcode.twentythree.common.dijkstras.DijkstrasProblem;
+import com.chrisdmilner.adventofcode.twentythree.common.dijkstras.DijkstrasSolver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class HeatLossProblem implements DijkstrasProblem<HeatLossProblem.Node> {
+public class HeatLossMapSolver extends DijkstrasSolver<HeatLossMapSolver.Node> {
     private final List<List<Integer>> heatLossMap;
     private final int minStraightMoves;
     private final int maxStraightMoves;
 
-    public HeatLossProblem(List<List<Integer>> heatLossMap, int minStraightMoves, int maxStraightMoves) {
+    public HeatLossMapSolver(List<List<Integer>> heatLossMap, int minStraightMoves, int maxStraightMoves) {
         this.heatLossMap = heatLossMap;
         this.minStraightMoves = minStraightMoves;
         this.maxStraightMoves = maxStraightMoves;
     }
 
     @Override
-    public Node getStartNode() {
+    protected Node getStartNode() {
         return new Node(Coordinates.of(0, 0), Direction.EAST, 0);
     }
 
     @Override
-    public boolean isEndNode(Node node) {
+    protected boolean isEndNode(Node node) {
         return node.coordinates().equals(getMapDimensions().move(-1, -1));
     }
 
     @Override
-    public List<Node> getNeighbours(Node node) {
+    protected List<Node> getNeighbours(Node node) {
         return getAllowedMoves(node).stream()
                 .filter(n -> Coordinates.isWithinBounds(n.coordinates(), getMapDimensions()))
                 .toList();
     }
 
     @Override
-    public int getDistance(Node from, Node to) {
+    protected int getDistance(Node from, Node to) {
         return heatLossMap.get(to.coordinates().y()).get(to.coordinates().x());
     }
 
