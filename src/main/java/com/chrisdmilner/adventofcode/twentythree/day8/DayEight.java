@@ -13,7 +13,7 @@ public abstract class DayEight implements PuzzleSolution {
         List<String> lines = input.readLines();
 
         return getNumberOfSteps(
-                lines.get(0).strip().toCharArray(),
+                lines.getFirst().strip().toCharArray(),
                 Network.fromLines(lines.subList(2, lines.size()))
         );
     }

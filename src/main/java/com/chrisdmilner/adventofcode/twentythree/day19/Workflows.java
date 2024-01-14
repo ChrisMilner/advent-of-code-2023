@@ -112,7 +112,7 @@ public class Workflows {
             }
 
             enum Condition {
-                ALWAYS_TRUE, LESS_THAN, GREATER_THAN;
+                ALWAYS_TRUE, LESS_THAN, GREATER_THAN
             }
         }
     }

@@ -83,5 +83,5 @@ public class DayFifteenPartTwo extends DayFifteen {
         return (1 + boxNumber) * (1 + slotNumber) * focalLength;
     }
 
-    record Lens(int focalLength, String label) {};
+    record Lens(int focalLength, String label) {}
 }
