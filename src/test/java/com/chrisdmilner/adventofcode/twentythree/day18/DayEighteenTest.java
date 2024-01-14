@@ -16,6 +16,7 @@ class DayEighteenTest {
 
     private static final PuzzleInput input = PuzzleInputReader.getInputFile(18);
     private static final PuzzleInput exampleInput = PuzzleInputReader.getExampleInputFile(18);
+    private static final PuzzleInput testInputOne = PuzzleInputReader.getTestInputFile(18, 1);
 
     @Test
     void partOneTest() throws IOException {
@@ -29,12 +30,21 @@ class DayEighteenTest {
 
     @Test
     @Disabled
+    // Known bug
+    void partOneTestInputOneTest() throws IOException {
+        assertEquals(26, partOne.solution(testInputOne));
+    }
+
+    @Test
+    @Disabled
+    // Too slow
     void partTwoTest() throws IOException {
         assertEquals(-1, partTwo.solution(input));
     }
 
     @Test
     @Disabled
+    // Too slow
     void partTwoExampleTest() throws IOException {
         assertEquals(952408144115L, partTwo.solution(exampleInput));
     }
