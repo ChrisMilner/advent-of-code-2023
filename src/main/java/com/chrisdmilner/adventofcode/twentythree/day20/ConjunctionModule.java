@@ -16,7 +16,7 @@ public class ConjunctionModule extends Module {
 
     @Override
     Pulse receive(String source, Pulse pulse) {
-        lastPulse.put(source, !lastPulse.get(source));
+        lastPulse.put(source, pulse == Pulse.HIGH);
 
         return lastPulse.values().stream().allMatch(b -> b) ? Pulse.LOW : Pulse.HIGH;
     }
