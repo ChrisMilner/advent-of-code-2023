@@ -5,6 +5,7 @@ import com.chrisdmilner.adventofcode.twentythree.common.Pair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
 public class PulseNetwork {
@@ -42,7 +43,7 @@ public class PulseNetwork {
         return nameSection;
     }
 
-    public Pair<Integer, Integer> start() {
+    public Pair<Integer, Integer> start(BiConsumer<String, Pulse> monitor) {
         List<Step> steps = new ArrayList<>();
         steps.add(new Step(null, "broadcaster", Pulse.LOW));
 
@@ -53,6 +54,8 @@ public class PulseNetwork {
             List<Step> newSteps = new ArrayList<>();
 
             for (Step step : steps) {
+                monitor.accept(step.destination(), step.pulse());
+
                 if (!moduleByName.containsKey(step.destination())) {
                     continue;
                 }
@@ -76,6 +79,10 @@ public class PulseNetwork {
         }
 
         return new Pair<>(lowPulses, highPulses);
+    }
+
+    public Pair<Integer, Integer> start() {
+        return start((a, b) -> {});
     }
 
     record Step(String source, String destination, Pulse pulse) {}

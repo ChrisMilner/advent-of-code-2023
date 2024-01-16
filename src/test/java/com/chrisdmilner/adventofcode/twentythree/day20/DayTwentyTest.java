@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DayTwentyTest {
     private static final PuzzleSolution partOne = new DayTwentyPartOne();
-//    private static final PuzzleSolution partTwo = new DayTwentyPartTwo();
+    private static final PuzzleSolution partTwo = new DayTwentyPartTwo();
 
     private static final PuzzleInput input = PuzzleInputReader.getInputFile(20);
     private static final PuzzleInput exampleInput = PuzzleInputReader.getExampleInputFile(20);
@@ -26,13 +26,8 @@ class DayTwentyTest {
         assertEquals(11687500, partOne.solution(exampleInput));
     }
 
-//    @Test
-//    void partTwoTest() throws IOException {
-//        assertEquals(-1, partTwo.solution(input));
-//    }
-
-//    @Test
-//    void partTwoExampleTest() throws IOException {
-//        assertEquals(-1, partTwo.solution(exampleInput));
-//    }
+    @Test
+    void partTwoTest() throws IOException {
+        assertEquals(-1, partTwo.solution(input));
+    }
 }
