@@ -24,6 +24,10 @@ public record Coordinates(int x, int y) {
         return new Coordinates(x + xDelta, y + yDelta);
     }
 
+    public List<Coordinates> getNeighbours() {
+        return List.of(move(1, 0), move(0, 1), move( -1, 0), move(0, -1));
+    }
+
     public List<Coordinates> getNeighboursIncludingDiagonal() {
         return List.of(
                 move(-1, -1), move(0, -1), move(1, -1),
@@ -37,5 +41,9 @@ public record Coordinates(int x, int y) {
         boolean yInBounds = coordinates.y() >= 0 && coordinates.y() < dimensions.y();
 
         return xInBounds && yInBounds;
+    }
+
+    public static int manhattanDistance(Coordinates a, Coordinates b) {
+        return Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
     }
 }
