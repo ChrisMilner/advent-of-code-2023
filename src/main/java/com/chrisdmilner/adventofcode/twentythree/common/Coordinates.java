@@ -36,6 +36,25 @@ public record Coordinates(int x, int y) {
         );
     }
 
+    public Direction directionTo(Coordinates other) {
+        int xDiff = other.x() - this.x();
+        int yDiff = other.y() - this.y();
+
+        if (xDiff != 0 && yDiff != 0) {
+            throw new RuntimeException("Coordinates differ in multiple dimensions");
+        }
+
+        if (xDiff != 0) {
+            return xDiff > 0 ? Direction.EAST : Direction.WEST;
+        }
+
+        if (yDiff != 0) {
+            return yDiff > 0 ? Direction.SOUTH : Direction.NORTH;
+        }
+
+        throw new RuntimeException("Coordinate ares the same");
+    }
+
     public static boolean isWithinBounds(Coordinates coordinates, Coordinates dimensions) {
         boolean xInBounds = coordinates.x() >= 0 && coordinates.x() < dimensions.x();
         boolean yInBounds = coordinates.y() >= 0 && coordinates.y() < dimensions.y();
