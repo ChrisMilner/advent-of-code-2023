@@ -4,4 +4,4 @@
 
 :white_check_mark: Part One
 
-:hammer: Part Two
+:white_check_mark: Part Two
