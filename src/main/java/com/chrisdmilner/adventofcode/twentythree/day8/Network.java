@@ -7,31 +7,31 @@ import java.util.stream.Collectors;
 
 public class Network {
     private final Map<String, Fork> map;
-    private List<String> currentLocations;
+    private String currentLocation;
 
     private Network(Map<String, Fork> map) {
         this.map = map;
-        this.currentLocations = List.of();
+        this.currentLocation = null;
     }
 
-    public List<String> getCurrentLocations() {
-        return currentLocations;
+    public String getCurrentLocation() {
+        return currentLocation;
     }
 
     public Set<String> allLocation() {
         return map.keySet();
     }
 
-    public void setCurrentLocations(List<String> locations) {
-        currentLocations = locations;
+    public void setCurrentLocation(String location) {
+        currentLocation = location;
     }
 
     public void goLeft() {
-        currentLocations = currentLocations.stream().map(l -> map.get(l).left()).toList();
+        currentLocation = map.get(currentLocation).left();
     }
 
     public void goRight() {
-        currentLocations = currentLocations.stream().map(l -> map.get(l).right()).toList();
+        currentLocation = map.get(currentLocation).right();
     }
 
     public static Network fromLines(List<String> lines) {

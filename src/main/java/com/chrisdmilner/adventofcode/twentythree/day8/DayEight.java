@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 public abstract class DayEight implements PuzzleSolution {
-    abstract int getNumberOfSteps(char[] route, Network network);
+    abstract long getNumberOfSteps(char[] route, Network network);
 
     public long solution(PuzzleInput input) throws IOException {
         List<String> lines = input.readLines();

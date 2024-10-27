@@ -21,10 +21,10 @@ class DayEightTest {
         assertEquals(21389, partOne.solution(input));
     }
 
-//    @Test
-//    void partTwoTest() throws IOException {
-//        assertEquals(0, partTwo.solution(input));
-//    }
+    @Test
+    void partTwoTest() throws IOException {
+        assertEquals(21083806112641L, partTwo.solution(input));
+    }
 
     @Test
     void partTwoExampleTest() throws IOException {

@@ -1,30 +1,37 @@
 package com.chrisdmilner.adventofcode.twentythree.day8;
 
+import com.chrisdmilner.adventofcode.twentythree.common.utils.MathsUtils;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class DayEightPartTwo extends DayEight {
     @Override
-    int getNumberOfSteps(char[] route, Network network) {
+    long getNumberOfSteps(char[] route, Network network) {
         List<String> startingLocations = network.allLocation().stream()
                 .filter(l -> l.endsWith("A"))
                 .toList();
 
-        network.setCurrentLocations(startingLocations);
+        List<Integer> loopLengths = new ArrayList<>();
 
-        int stepsTaken = 0;
-        int i = 0;
+        for (String start : startingLocations) {
+            network.setCurrentLocation(start);
 
-        while (!network.getCurrentLocations().stream().allMatch(l -> l.endsWith("Z"))) {
-            if (route[i] == 'L') {
-                network.goLeft();
-            } else {
-                network.goRight();
+            int steps = 0;
+
+            while (!network.getCurrentLocation().endsWith("Z")) {
+                if (route[steps % route.length] == 'L') {
+                    network.goLeft();
+                } else {
+                    network.goRight();
+                }
+
+                steps++;
             }
 
-            stepsTaken++;
-            i = (i + 1) % route.length;
+            loopLengths.add(steps);
         }
 
-        return stepsTaken;
+        return MathsUtils.lowestCommonMultiple(loopLengths);
     }
 }
